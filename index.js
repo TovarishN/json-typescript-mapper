@@ -96,7 +96,7 @@ function mapFromJson(decoratorMetadata, instance, json, key) {
             return;
         }
         else {
-            return [innerJson];
+            return innerJson;
         }
     }
     if (!utils_1.isPrimitiveOrPrimitiveClass(clazz)) {
