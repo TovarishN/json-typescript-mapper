@@ -129,12 +129,10 @@ function mapFromJson<T>(decoratorMetadata: IDecoratorMetaData<any>, instance: T,
     if (isArrayOrArrayClass(clazz)) {
         let metadata = getJsonProperty(instance, key);
         if (metadata && metadata.clazz || isPrimitiveOrPrimitiveClass(clazz)) {
-            if (innerJson && isArrayOrArrayClass(innerJson)) {
-                return innerJson.map(
-                    (item: any) => deserialize(metadata.clazz, item)
-                );
-            }
-            return;
+            if (innerJson && isArrayOrArrayClass(innerJson))
+                return innerJson.map((item: any) => deserialize(metadata.clazz, item));
+            else 
+                return [innerJson].map((item: any) => deserialize(metadata.clazz, item));
         } else {
             return innerJson;
         }

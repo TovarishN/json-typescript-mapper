@@ -90,10 +90,10 @@ function mapFromJson(decoratorMetadata, instance, json, key) {
     if (utils_1.isArrayOrArrayClass(clazz)) {
         var metadata_1 = getJsonProperty(instance, key);
         if (metadata_1 && metadata_1.clazz || utils_1.isPrimitiveOrPrimitiveClass(clazz)) {
-            if (innerJson && utils_1.isArrayOrArrayClass(innerJson)) {
+            if (innerJson && utils_1.isArrayOrArrayClass(innerJson))
                 return innerJson.map(function (item) { return deserialize(metadata_1.clazz, item); });
-            }
-            return;
+            else
+                return [innerJson].map(function (item) { return deserialize(metadata_1.clazz, item); });
         }
         else {
             return innerJson;
