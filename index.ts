@@ -136,7 +136,7 @@ function mapFromJson<T>(decoratorMetadata: IDecoratorMetaData<any>, instance: T,
             }
             return;
         } else {
-            return innerJson;
+            return [innerJson];
         }
     }
 

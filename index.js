@@ -1,6 +1,6 @@
 "use strict";
-require('reflect-metadata');
-var utils_1 = require('./libs/utils');
+require("reflect-metadata");
+var utils_1 = require("./libs/utils");
 /**
  * Decorator variable name
  *
@@ -76,7 +76,7 @@ function getJsonProperty(target, propertyKey) {
 function hasAnyNullOrUndefined() {
     var args = [];
     for (var _i = 0; _i < arguments.length; _i++) {
-        args[_i - 0] = arguments[_i];
+        args[_i] = arguments[_i];
     }
     return args.some(function (arg) { return arg === null || arg === undefined; });
 }
@@ -96,7 +96,7 @@ function mapFromJson(decoratorMetadata, instance, json, key) {
             return;
         }
         else {
-            return innerJson;
+            return [innerJson];
         }
     }
     if (!utils_1.isPrimitiveOrPrimitiveClass(clazz)) {
